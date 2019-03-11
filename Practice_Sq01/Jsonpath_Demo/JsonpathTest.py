@@ -40,30 +40,31 @@ false = False
 # 把json格式字符串转换成python对象
 # jsonobj = json.loads(html)
 
-jsonobj = {"a": 1, "b": {"kk": {"nn": 111, "pp": "ppoii"}, "yy": "123aa", "uu": "777aa"},
+jsonobj = {"a": 4, "b": {"kk": {"nn": 111, "pp": "ppoii"}, "yy": "123aa", "uu": "777aa"},
               "c": [{"a": 1, "b": 2}, {"a": 3, "b": 4}, {"a": 5, "b": ["ppp", 3, 4, True]}]}
 
 # 从根节点开始，匹配name节点
 # citylist = jsonpath01.jsonpath(jsonobj, '$..pp')            # '$..pp' 等同于 $.b.kk.pp
 # citylist = jsonpath01.jsonpath(jsonobj, '$..b')
-citylist = jsonpath01.jsonpath(jsonobj, '$..c[?(@.a>2)]')       # 取c中a>2的所有信息
 # citylist = jsonpath01.jsonpath(jsonobj, '$.c[2].b[3]')
 
 # 使用jsonpath_rw处理
-citylist_rw = parse('$.c[2].b[3]')
+citylist_rw = parse('$.c[2].b[3]')          # 使用parse创建jsonpath对象       取jsonobj["c"][2][3] 即"True" 值
 citylist_tx = citylist_rw.find(jsonobj)
+print "======================================================="
 print citylist_tx
 print type(citylist_tx)
 print [match.value for match in citylist_tx]
 
-
+citylist = jsonpath01.jsonpath(jsonobj, '$..c[?(@.a>2)]')       # 取c中a>2的所有信息      若为list，打印 -----> 满足条件的list下标值，len(list)
 print citylist
 print(type(citylist))
 
 fp = open('city.json', 'w')
 
-content = json.dumps(citylist, ensure_ascii=False)
+content = json.dumps(citylist, ensure_ascii=False)          # python的json转成java的json格式的str
 print content
+print type(content)
 fp.write(content.encode('utf-8'))
 
 fp.close()
