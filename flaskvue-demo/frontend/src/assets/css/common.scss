@@ -1,0 +1,44 @@
+/**
+ * 颜色
+ */
+// 通用-蓝色
+$blue: #1890FF;
+// 通用-深黑色（字体）
+$font-dark-black: rgba(0, 0, 0, 0.85);
+// 通用-黑色（字体）
+$font-black: rgba(0, 0, 0, 0.65);
+// 通用-浅黑色（字体）
+$font-shallow-black: rgba(0, 0, 0, 0.45);
+// 背景-黑色
+$bg-black: #002918;
+// 背景-白色
+$bg-white: #fff;
+
+/**
+ * 字号
+ */
+// 大号字体
+$fs-l: 20px;
+// 中号字体
+$fs-m: 14px;
+// 小号字体
+$fs-s: 12px;
+
+
+/**
+ * 公共样式
+ */
+//  大号字体
+.fs-l {
+  font-size: 20px;
+}
+
+// 中号字体
+.fs-m {
+  font-size: 14px;
+}
+
+// 小号字体
+.fs-s {
+  font-size: 12px;
+}

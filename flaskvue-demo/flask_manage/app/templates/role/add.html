@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UserAdd</title>
+</head>
+<body>
+<form action="/role/add/" method="POST">
+    id:<input type="text" name="id" />
+    role:<input type="text" name="role" />
+    <input type="submit" value="add" />
+</form>
+{% if roles %}
+<table border="1px">
+    <tr>
+        <th>Id</th>
+        <th>Role</th>
+    </tr>
+    {% for u in roles %}
+        <tr>
+            <td>{{u.id}}</td>
+            <td>{{u.role}}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endif %}
+</body>
+</html>
